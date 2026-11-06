@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rating_buster.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gkudelka <gkudelka@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/06 09:51:21 by gkudelka          #+#    #+#             */
+/*   Updated: 2026/11/06 10:01:50 by gkudelka         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+void	get_ranked(t_stack *stack)
+{
+	t_stack	*current;
+	t_stack	*compare;
+	int		rank;
+
+	if (!stack)
+		return ;
+	current = stack;
+	while (current)
+	{
+		rank = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (compare->n < current->n)
+				rank++;
+			compare = compare->next;
+		}
+		current->rank = rank;
+		current = current->next;
+	}
+}
