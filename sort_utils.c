@@ -6,13 +6,13 @@
 /*   By: gkudelka <gkudelka@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 10:32:34 by gkudelka          #+#    #+#             */
-/*   Updated: 2026/11/06 14:28:17 by gkudelka         ###   ########.fr       */
+/*   Updated: 2026/11/07 14:36:51 by gkudelka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-unsigned int calc_size(t_stack *stack)
+unsigned int	calc_size(t_stack *stack)
 {
 	unsigned int	count;
 
@@ -70,24 +70,8 @@ int	get_chunk_size(int n)
 	return (size);
 }
 
-void	restore_a(t_stack **a, t_stack **b, int size)
+void	restore_binary(t_stack **a, t_stack **b)
 {
-	int	rota;
-
 	while (*b)
-	{
-		rota = calc_rota(*b, size - 1);
-		while (rota > 0)
-		{
-			rb(b);
-			rota--;
-		}
-		while (rota < 0)
-		{
-			rrb(b);
-			rota++;
-		}
 		pa(a, b);
-		size--;
-	}
 }

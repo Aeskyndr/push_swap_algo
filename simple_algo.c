@@ -18,6 +18,9 @@ void	simple_algo(t_stack **a, t_stack **b)
 	int	rank;
 	int	size;
 
+	if (!a || !b || !*a || is_sorted(*a))
+		return ;
+	get_ranked(*a);
 	size = (int)calc_size(*a);
 	rank = 0;
 	while (rank < size)

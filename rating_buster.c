@@ -35,3 +35,14 @@ void	get_ranked(t_stack *stack)
 		current = current->next;
 	}
 }
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->n > stack->next->n)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
